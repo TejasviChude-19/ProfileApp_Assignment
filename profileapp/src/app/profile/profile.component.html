@@ -1,0 +1,30 @@
+
+<div class="search-container">
+  <input type="text" class="search-input" placeholder="Search by name or address..." [(ngModel)]="searchTerm">
+  <button  class="search-button" (click)="searchProfiles()">Search</button>
+  <button class="clear-button" (click)="clearSearch()">Clear</button>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+      <div *ngIf="filteredProfiles.length === 0" class="no-results">
+        No matching profiles found.
+      </div>
+      <div class="col-md-4" *ngFor="let profile of profiles"  >
+        <div class="profile-card" *ngIf="filteredProfiles.length" >
+          <img [src]="profile.photoUrl" alt="Profile Image" class="profile-img">
+          <h3>{{ profile.name }}</h3>
+          <p>{{ profile.role }}</p>
+          <p>{{ profile.description }}</p>
+          <!-- <button (click)="showProfileLocation(profile)">Summary</button> -->
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+  <!-- <div *ngIf="showMap" class="map-container">
+    <agm-map [latitude]="selectedProfile?.latitude" [longitude]="selectedProfile?.longitude" [zoom]="14">
+      <agm-marker [latitude]="selectedProfile?.latitude" [longitude]="selectedProfile?.longitude"></agm-marker>
+    </agm-map>
+  </div> -->

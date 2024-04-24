@@ -1,0 +1,28 @@
+
+
+<div>
+    <h2 class="heading">Welcome, Admin!</h2>
+    <!-- Implement profile management features (add, edit, delete profiles) here -->
+    <button (click)="logout()">Logout</button>
+  
+
+  <h2>List of Profiles</h2>
+  
+  <div *ngIf="profiles.length > 0; else noProfiles">
+    <div *ngFor="let profile of profiles" class="profile-card">
+      <img [src]="profile.photoUrl" alt="Profile Photo" class="profile-photo">
+      <div class="profile-details">
+        <h3>{{ profile.name }}</h3>
+        <p><strong>Role:</strong> {{ profile.role }}</p>
+        <button (click)="updateProfile(profile)">Edit</button>
+        <button (click)="deleteProfile(profile.id)">Delete</button>
+        <p>{{ profile.description }}</p>
+        <p><strong>Location:</strong> Latitude {{ profile.location.lat }}, Longitude {{ profile.location.lng }}</p>
+      
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

@@ -1,0 +1,22 @@
+<form [formGroup]="Form" (ngSubmit)="onSubmit()">
+  <label>Name:</label>
+  <input type="text" formControlName="name">
+
+  <label>Role:</label>
+  <input type="text" formControlName="role">
+
+  <label>Description:</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Photo URL:</label>
+  <input type="text" formControlName="photoUrl">
+
+  <label>Location (Latitude):</label>
+  <input type="number" formControlName="location.lat">
+
+  <label>Location (Longitude):</label>
+  <input type="number" formControlName="location.lng">
+
+  <button type="submit">Save</button>
+</form>
+
